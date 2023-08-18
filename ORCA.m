@@ -11,8 +11,8 @@
 
 
 clear
-addpath(genpath('C:\Users\gavin\Documents\MATLAB\TDTSDK')); %Set this file path to the appropriate one on your computer
-addpath(genpath('C:\Users\gavin\Documents\MATLAB\FP_Analysis_master')); %Same here
+addpath(genpath('C:\ADDFILEPATH')); %Add the filepath to the TDT Matlab SDK
+addpath(genpath('C:\ADDFILEPATH')); %Add the filepath to the ORCA script + functions
 %% FP Analysis settings
 
 %Preprocessing
@@ -60,6 +60,9 @@ end
 %% Isosbestic Channel Correction
 [Iso_fit,Fit1,Fit2] = iso_fit(Signal,Control,Time,Filename,Filepath);
 %% Import discrete behaviour timeseries and align with Ca2+ trace
+% Select the CSV containing the behaviour timeseries you generated from
+% MultiKeyVideoStopwatch (available from https://github.com/gavinscott280/MultikeyVideoStopwatch)
+
 Behav_disc_file = uigetfile;
 Behav_disc_file = strcat(Filepath,'/',Behav_disc_file);
 Behav_disc = readtable(Behav_disc_file); Behav_disc = table2array(Behav_disc);
